@@ -1,0 +1,52 @@
+﻿@using System.Security.Claims;
+@model AppUser
+
+@{
+    ViewData["Title"] = "User Profile";
+    var curId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+<br />
+<br />
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="~/css/profilepage.css">
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-content">
+            @if (Model.ImagePath == null)
+            {
+                <img src="/profile/pfps/placeholder.png" alt="Logo" class="profile-company-logo">
+            }
+            else
+            {
+                <img src="@Model.ImagePath" alt="Logo" class="profile-company-logo">
+            }
+            @if (Model.Id == curId)
+            {
+                <a class="action-icon1" href="@Url.Action("Edit", "Profile", new { id = Model.Id })">
+                    <img src="/lib/Logos/edit-icon.png" alt="Edit" style="width: 22px; height: 22px;" />
+                </a>
+            }
+            <div class="header-text">
+                <h1>@Model.UserName</h1>
+                <p>@Html.Raw(Model.Description)</p>
+                @if(Model.LinkedInURL != null)
+                {
+                    <p><b>LinkedIn: </b> <a style="text-decoration: none;" href="@Model.LinkedInURL" target="_blank"> LinkedIn Profile</a></p>
+                }
+                @if (Model.GitHubURL != null)
+                {
+                    <p><b>Github: </b> <a style="text-decoration: none;" href="@Model.GitHubURL" target="_blank"> GitHub Profile</a></p>
+                }
+                @if (Model.CV != null)
+                {
+                    <p><b>CV: </b> <a style="text-decoration: none;" href="@Model.CV" target="_blank"> CV</a></p>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

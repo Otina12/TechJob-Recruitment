@@ -1,0 +1,369 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\JobFindingWebsite.bundle.scp.css",
+      "PackagePath": "staticwebassets\\JobFindingWebsite.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\index-jobcard.css",
+      "PackagePath": "staticwebassets\\css\\index-jobcard.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\jobcard.css",
+      "PackagePath": "staticwebassets\\css\\jobcard.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\mainpage.css",
+      "PackagePath": "staticwebassets\\css\\mainpage.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\postjob.css",
+      "PackagePath": "staticwebassets\\css\\postjob.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\profilepage.css",
+      "PackagePath": "staticwebassets\\css\\profilepage.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\registerstyle.css",
+      "PackagePath": "staticwebassets\\css\\registerstyle.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\1721865.svg",
+      "PackagePath": "staticwebassets\\lib\\Logos\\1721865.svg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\city-logo.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\city-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\edit-icon.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\edit-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\hourstype-logo.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\hourstype-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\logo.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\mainphoto.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\mainphoto.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\money-logo.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\money-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\remove-icon.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\remove-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\seniority-logo.png",
+      "PackagePath": "staticwebassets\\lib\\Logos\\seniority-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\Logos\\work1.jpeg",
+      "PackagePath": "staticwebassets\\lib\\Logos\\work1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\CVs\\5408c1a3-4605-4a0f-a1d2-15d596f2d711.pdf",
+      "PackagePath": "staticwebassets\\profile\\CVs\\5408c1a3-4605-4a0f-a1d2-15d596f2d711.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\CVs\\ce173ba9-0fe2-4eb5-9dd3-9b77f8eb04f2.pdf",
+      "PackagePath": "staticwebassets\\profile\\CVs\\ce173ba9-0fe2-4eb5-9dd3-9b77f8eb04f2.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\CVs\\e325f44e-196d-407f-acfd-ea9149c9fb0a.pdf",
+      "PackagePath": "staticwebassets\\profile\\CVs\\e325f44e-196d-407f-acfd-ea9149c9fb0a.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\1d0cd430-bb3f-4067-a969-a63596de5883.jpg",
+      "PackagePath": "staticwebassets\\profile\\pfps\\1d0cd430-bb3f-4067-a969-a63596de5883.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\63a565f9-a2a4-4a40-b1cd-5150329f3793.png",
+      "PackagePath": "staticwebassets\\profile\\pfps\\63a565f9-a2a4-4a40-b1cd-5150329f3793.png"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\794bb5d3-1617-43e8-8060-5a745b74ad35.jpg",
+      "PackagePath": "staticwebassets\\profile\\pfps\\794bb5d3-1617-43e8-8060-5a745b74ad35.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\993207ad-730b-499a-b89f-ac998efcd055.jpg",
+      "PackagePath": "staticwebassets\\profile\\pfps\\993207ad-730b-499a-b89f-ac998efcd055.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\9ac0e1a2-99e9-4956-b63c-6bc0b9881446.jpg",
+      "PackagePath": "staticwebassets\\profile\\pfps\\9ac0e1a2-99e9-4956-b63c-6bc0b9881446.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\d9abb064-7b78-4b7d-bba5-327da751532d.jpg",
+      "PackagePath": "staticwebassets\\profile\\pfps\\d9abb064-7b78-4b7d-bba5-327da751532d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\source\\repos\\JobFindingWebsite\\JobFindingWebsite\\wwwroot\\profile\\pfps\\placeholder.png",
+      "PackagePath": "staticwebassets\\profile\\pfps\\placeholder.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.JobFindingWebsite.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.JobFindingWebsite.props",
+      "PackagePath": "build\\JobFindingWebsite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.JobFindingWebsite.props",
+      "PackagePath": "buildMultiTargeting\\JobFindingWebsite.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.JobFindingWebsite.props",
+      "PackagePath": "buildTransitive\\JobFindingWebsite.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,159 @@
+﻿.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1), -1px 0 1px rgba(0, 0, 0, 0.1), 1px 0 1px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 75%;
+    position: relative;
+    min-height: 170px;
+}
+
+.vacancy-info {
+    margin-bottom: 30px;
+}
+
+.skill-tag {
+    display: inline-block;
+    margin: 2px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+
+.action-icons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+}
+
+.action-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    transition: transform 0.1s ease-in-out;
+}
+
+    .action-icon:hover {
+        transition: 0.1s ease-in-out;
+        transform: scale(1.1);
+    }
+
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-title {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.company-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.company-logo .logo-image,
+.company-logo .image-placeholder {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 8px;
+}
+
+.job-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.see-more {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background-color: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .see-more:hover {
+        background-color: #0c57a3;
+        color: white;
+    }
+
+.analytics {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background-color: #73c916;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .analytics:hover {
+        background-color: #8edb3b;
+        color: white;
+    }
+
+.job-icon img {
+    height: auto;
+    width: auto;
+    max-height: 24px;
+}
+
+
+.job-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .job-card {
+        flex-direction: column;
+    }
+
+    .company-logo,
+    .job-content {
+        width: 100%;
+    }
+
+    .job-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-info-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .see-more {
+        width: 100%;
+    }
+}

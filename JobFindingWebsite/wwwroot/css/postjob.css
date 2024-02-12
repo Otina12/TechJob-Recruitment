@@ -1,0 +1,87 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body, input, select, textarea, button {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font throughout */
+}
+
+.form-container {
+    max-width: 960px; /* Adjusted width */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: .75rem; /* Increased padding */
+    font-size: 1rem; /* Reset font size to default */
+}
+
+    input.form-control:focus,
+    textarea.form-control:focus,
+    select.form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+
+::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* Flexbox layout for side-by-side form groups */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+    .flex-container > .form-group {
+        flex: 1;
+        min-width: calc(50% - 20px); /* Adjusted for 2 elements in a row with gap */
+    }
+
+/* Responsive design: stack on smaller screens */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+        .flex-container > .form-group {
+            min-width: 100%;
+        }
+}
+
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+    button.btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+.text-danger {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.875em;
+}

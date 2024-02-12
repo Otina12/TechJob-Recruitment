@@ -1,0 +1,87 @@
+﻿﻿@using JobFindingWebsite.ViewModels;
+@using System.Security.Claims;
+@model VacancyDetailsViewModel
+
+@{
+    ViewData["Title"] = "Vacancy Details";
+    var curId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+
+<link rel="stylesheet" href="/css/jobcard.css" asp-append-version="true">
+
+<br />
+<div class="job-card">
+    <h3 style="text-align: center;"><b>@Model.Vacancy.Title</b></h3>
+    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+    @if (Model.Vacancy.CompanyId == curId)
+    {
+        <div class="action-icons">
+            <a asp-controller="Vacancy" asp-action="Edit" asp-route-id="@Model.Vacancy.Id">
+                <img src="/lib/Logos/edit-icon.png" alt="Edit" class="action-icon" />
+            </a>
+            <a asp-controller="Vacancy" asp-action="Delete" asp-route-id="@Model.Vacancy.Id">
+                <img src="/lib/Logos/remove-icon.png" alt="Remove" class="action-icon" />
+            </a>
+        </div>
+    }
+    <p><b>Description</b></p>
+    <p style ="margin-bottom: 35px;">@Html.Raw(Model.Vacancy.Description)</p>
+    <p class="vacancy-info"><b>Job Type:&nbsp;&nbsp;</b>@Model.Vacancy.JobType</p>
+    <p class="vacancy-info"><b>Hours Type:&nbsp;&nbsp;</b>@Model.Vacancy.HoursType</p>
+    <p class="vacancy-info"><b>Salary:&nbsp;&nbsp;</b>@(Model.Vacancy.Salary == "" ? "Depends" : Model.Vacancy.Salary)</p>
+    <p class="vacancy-info"><b>City:&nbsp;&nbsp;</b>@(Model.Vacancy.City == "" ? "Any" : Model.Vacancy.City)</p>
+    <p class="vacancy-info"><b>Expires:&nbsp;&nbsp;</b>@Model.Vacancy.ExpireDate.ToString("MMMM dd, yyyy")</p>
+    @if (Model.Languages != null)
+    {
+        <p style="margin-bottom: 5px;"><b>Programming Languages</b></p>
+        <div style="margin-top: 0;">
+            @foreach (var language in Model.Languages)
+            {
+                <span class="skill-tag">@language.Name</span>
+            }
+        </div>
+    }
+    @if (Model.Frameworks != null)
+    {
+        <p style="margin-bottom: 5px; margin-top: 15px;"><b>Frameworks</b></p>
+        <div style="margin-top: 0;">
+            @foreach (var framework in Model.Frameworks)
+            {
+                <span class="skill-tag">@framework.Name</span>
+            }
+        </div>
+    }
+    <br />
+    @if (User.IsInRole("user"))
+    {
+        if (!Model.isSaved)
+        {
+            <form asp-controller="Vacancy" asp-action="SaveToFavorites" asp-route-id="@Model.Vacancy.Id" method="post">
+                <input type="hidden" name="vacancyId" value="@Model.Vacancy.Id" />
+                <button type="submit" style="text-decoration: none; margin-top: 5px; margin-bottom: 5px;" class="btn btn-primary">Save to Favorites</button>
+            </form>
+        }
+        else
+        {
+            <form asp-controller="Vacancy" asp-action="RemoveFromFavorites" asp-route-id="@Model.Vacancy.Id" method="post">
+                <input type="hidden" name="vacancyId" value="@Model.Vacancy.Id" />
+                <button type="submit" style="text-decoration: none; margin-top: 5px; margin-bottom: 5px;" class="btn btn-warning">Remove from Favorites</button>
+            </form>
+        }
+        if (!Model.isApplied)
+        {
+            <form asp-controller="Vacancy" asp-action="Apply" asp-route-id="@Model.Vacancy.Id" method="post">
+                <input type="hidden" name="vacancyId" value="@Model.Vacancy.Id" />
+                <button type="submit" style="text-decoration: none; margin-top: 5px; margin-bottom: 5px;" class="btn btn-success">Apply</button>
+            </form>
+        }
+        else
+        {
+            <form asp-controller="Vacancy" asp-action="Unapply" asp-route-id="@Model.Vacancy.Id" method="post">
+                <input type="hidden" name="vacancyId" value="@Model.Vacancy.Id" />
+                <button type="submit" style="text-decoration: none; margin-top: 5px; margin-bottom: 5px;" class="btn btn-danger">Unapply</button>
+            </form>
+        }
+    }
+</div>

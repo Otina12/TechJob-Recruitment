@@ -1,0 +1,339 @@
+﻿.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.search {
+    --padding: 18px;
+    width: 90%;
+    display: flex;
+    height: 55px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    padding-left: var(--padding);
+    border-radius: 28px;
+    background: #f6f6f6;
+    border: 0.1px solid grey;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: background 0.25s, box-shadow 0.25s;
+    margin-right: 8px;
+}
+
+    .search:focus-within {
+        background-color: #f1f1f1;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    }
+
+.search-input {
+    font-size: 22px;
+    font-family: "Poppins", sans-serif;
+    color: #333333;
+    outline: none;
+    border: none;
+    background: transparent;
+    flex-grow: 1;
+    margin-right: var(--padding);
+}
+
+.skill-tag {
+    display: inline-block;
+    margin: 2px;
+    padding: 5px 30px 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    font-size: 0.8em;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+.search-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    height: 55px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+    .search-btn:hover {
+        background-color: #0056b3;
+    }
+
+.search-icon {
+    margin-right: 16px;
+    color: rgba(0, 0, 0, 0.35);
+    user-select: none;
+}
+
+.search-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+
+.dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+}
+
+.filter-sidebar {
+    flex: 0 0 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+}
+
+.filter-section h3 {
+    margin-top: 0;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.job-cards-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1), -1px 0 1px rgba(0, 0, 0, 0.1), 1px 0 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    min-height: 170px;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-title {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.company-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.company-logo .logo-image,
+.company-logo .image-placeholder {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 8px;
+}
+
+.job-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.see-more {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background-color: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .see-more:hover {
+        background-color: #0c57a3;
+        color: white;
+    }
+
+.job-icon img {
+    height: auto;
+    width: auto;
+    max-height: 24px;
+}
+
+
+.job-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .job-card {
+        flex-direction: column;
+    }
+
+    .company-logo,
+    .job-content {
+        width: 100%;
+    }
+
+    .job-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-info-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .see-more {
+        width: 100%;
+    }
+}
+
+.no-jobs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.no-jobs-message {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #555;
+}
+
+.ghost {
+    width: 70px;
+    height: 80px;
+    background: #e8e8e8;
+    border-radius: 35px 35px 0 0;
+    position: relative;
+    animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.face {
+    width: 50px;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 25px);
+}
+
+.eyes {
+    height: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+    .eyes span {
+        width: 12px;
+        height: 12px;
+        background: black;
+        border-radius: 50%;
+        transition: .3s linear;
+    }
+
+.mouth {
+    width: 20px;
+    height: 10px;
+    background: black;
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    transition: .3s linear;
+}
+
+.hands {
+    width: 90px;
+    position: absolute;
+    left: -10px;
+    top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .hands span {
+        width: 10px;
+        height: 15px;
+        background: #e8e8e8;
+    }
+
+        .hands span:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .hands span:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+.feet {
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+    display: flex;
+}
+
+    .feet span {
+        flex: 1;
+        height: 10px;
+        background: #e8e8e8;
+        border-radius: 0 0 10px 10px;
+    }
+
+        .feet span:first-child {
+            border-radius: 0 0 10px 6px
+        }
+
+        .feet span:last-child {
+            border-radius: 0 0 6px 10px
+        }
+
+

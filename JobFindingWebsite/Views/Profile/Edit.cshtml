@@ -1,0 +1,153 @@
+﻿@using JobFindingWebsite.ViewModels
+@using JobFindingWebsite.Data.Enum
+@using System.Security.Claims;
+@model EditAccountViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+    var isCompany = User.IsInRole("company");
+    var curID = @User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var placeholderImagePath = "/profile/pfps/placeholder.png";
+}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="~/css/jobcard.css">
+    <link rel="stylesheet" href="~/css/profilepage.css">
+</head>
+<body>
+    <div class="form-container" enctype="multipart/form-data">
+        <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="UserName" class="required-field">Username</label>
+                <input asp-for="UserName" class="form-control" placeholder="Username">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="required-field">Description</label>
+                <textarea asp-for="Description" class="form-control" placeholder="Describe your company or personal profile"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinkedInURL">LinkedIn URL</label>
+                <input asp-for="LinkedInURL" type="url" class="form-control" placeholder="Enter link to your LinkedIn">
+                <span asp-validation-for="LinkedInURL" class="text-danger"></span>
+            </div>
+
+            @if (isCompany)
+            {
+                <div class="flex-container">
+                    <div class="form-group">
+                        <label asp-for="Company!.Industry" class="required-field">Industry</label>
+                        <select asp-for="Company!.Industry" asp-items="@Html.GetEnumSelectList<CompanyType>()" class="form-control">
+                            <option value="">Select Industry</option>
+                        </select>
+                        <span asp-validation-for="Company!.Industry" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Company!.NumberOfEmployees">Employees Number</label>
+                        <input asp-for="Company!.NumberOfEmployees" type="number" class="form-control" placeholder="Enter number of employees">
+                        <span asp-validation-for="Company!.NumberOfEmployees" class="text-danger"></span>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="flex-container">
+                    <div class="form-group">
+                        <label asp-for="@Model.User!.GitHubURL">GitHub URL</label>
+                        <input asp-for="@Model.User!.GitHubURL" type="url" class="form-control" placeholder="Enter your GitHub profile link">
+                        <span asp-validation-for="@Model.User!.GitHubURL" class="text-danger"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <p><b>Current CV: </b> <a style="text-decoration: none;" href="@Model.User!.CV" target="_blank"> CV</a></p>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.User.CVpdf">Change CV</label>
+                        <input asp-for="@Model.User.CVpdf" type="file" class="form-control">
+                        <span asp-validation-for="@Model.User.CVpdf" class="text-danger"></span>
+                    </div>
+                </div>
+            }
+            <br />
+            <div class="form-group">
+                <label><b>Current Image</b></label>
+                <img style="max-height: 75px;" src="@(!string.IsNullOrEmpty(Model.ImageUrl) ? Model.ImageUrl : placeholderImagePath)"
+                     alt="Current Image"
+                     class="current-image" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Image">Change Image</label>
+                <input asp-for="Image" type="file" class="form-control">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="display: flex; justify-content: center; margin-top: 35px;">
+                <input asp-controller="Profile" asp-action="Edit" type="submit" value="Save Changes" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</body>
+
+
+<style>
+    
+    .required-field::after {
+        content: "*";
+        color: red;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f4f6;
+        margin: 0;
+    }
+
+    .form-container {
+        background-color: white;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: .5rem;
+        color: #333;
+    }
+
+    input.form-control,
+    select.form-control,
+    textarea.form-control {
+        width: 100%;
+        padding: .375rem .75rem;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        margin-bottom: .5rem;
+    }
+
+    input[type="submit"].btn-primary {
+        width: auto;
+        padding: .5rem 1.5rem;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: .25rem;
+        cursor: pointer;
+        transition: background-color .2s;
+    }
+
+        input[type="submit"].btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>

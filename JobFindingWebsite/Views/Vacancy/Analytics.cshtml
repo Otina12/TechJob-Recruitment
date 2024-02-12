@@ -1,0 +1,102 @@
+﻿@using JobFindingWebsite.Data.Enum;
+@using JobFindingWebsite.ViewModels;
+@model VacancyAnalyticsViewModel
+
+@{
+    ViewData["Title"] = "Vacancy Analytics";
+}
+
+<link rel="stylesheet" href="~/css/profilepage.css" asp-append-version="true" />
+
+<div class="profile-container mt-5">
+    <h2 class="text-center">Vacancy Analytics</h2>
+    <div class="profile-card">
+        <div class="card-header">
+            Vacancy Details
+        </div>
+        <div class="card-body">
+            <h3 class="card-title"><b>@Model.Vacancy.Title</b></h3>
+            <p><strong>Views: </strong>@Model.Vacancy.ViewCount</p>
+            <p><strong>Salary: </strong>$@Model.Vacancy.Salary</p>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Applicants</h4>
+    @if (Model.Applicants != null)
+    {
+        @foreach (var a in Model.Applicants) // Item1 - User, Item2 - Status
+        {
+            <div class="applicant-container">
+                <a asp-controller="Profile" asp-action="AppUser" asp-route-id="@a.Item1.Id"
+                   class="applicant-link">
+                    @a.Item1.UserName
+                </a>
+                @{
+                    var status = @a.Item2.ToString();
+                    var badgeClass = "bg-danger";
+                    if (status == "Pending")
+                    {
+                        badgeClass = "bg-secondary";
+                    }
+                    else if (status == "Accepted")
+                    {
+                        badgeClass = "bg-success";
+                    }
+                    <span class="applicant-button @badgeClass" onclick="openStatusChangeModal('@a.Item1.Id', @Model.Vacancy.Id, '@status')">@status</span>
+                }
+            </div>
+        }
+        <div id="statusChangeModal" style="display:none;">
+            <div>
+                <h2>Change Status</h2>
+                <button onclick="changeStatus('Accepted')">Accept</button>
+                <button onclick="changeStatus('Rejected')">Reject</button>
+                <input type="hidden" id="currentUserId" />
+                <input type="hidden" id="currentVacancyId" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>No applicants yet.</p>
+    }
+</div>
+
+<script>
+    function openStatusChangeModal(userId, vacancyId, status) {
+        var modal = document.getElementById('statusChangeModal');
+        var button = event.target;
+        var rect = button.getBoundingClientRect();
+
+        modal.style.top = (rect.top - 30) + 'px';
+        modal.style.right = (window.innerWidth - rect.right - 270) + 'px';
+
+        document.getElementById('currentUserId').value = userId;
+        document.getElementById('currentVacancyId').value = vacancyId;
+
+        modal.style.display = 'block';
+    }
+
+
+
+    function changeStatus(newStatus) {
+        const userId = document.getElementById('currentUserId').value;
+        const vacancyId = document.getElementById('currentVacancyId').value;
+
+        $.ajax({
+            url: '/Vacancy/ChangeStatus',
+            type: 'POST',
+            data: {
+                userId: userId,
+                vacancyId: vacancyId,
+                statusString: newStatus
+            },
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = response.redirectUrl;
+                }
+            }
+        });
+    }
+
+</script>

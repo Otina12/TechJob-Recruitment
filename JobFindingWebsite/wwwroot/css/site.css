@@ -1,0 +1,126 @@
+﻿.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.nav {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.container {
+    width: 80%;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.clickable-block {
+    text-align: center;
+    border-radius: 5px;
+}
+
+    .clickable-block a {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        color: inherit;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .clickable-block .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+
+    .clickable-block:hover {
+        background-color: rgba(128, 128, 128, 0.2);
+    }
+
+
+.material-symbols-outlined {
+    display: block;
+}
+
+.logout-icon {
+    margin-top: 2px;
+}
+
+.logo-margin {
+    margin-left: 3rem;
+}
+
+.home-margin {
+    margin-left: 1rem;
+}
+
+.signin-margin {
+    margin-right: 0.5rem;
+}
+
+.register-margin {
+    margin-right: 3rem;
+}
+
+.custom-button {
+    background-color: #ffb300;
+    color: #fff;
+    border-color: #ffb300;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 4px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #949494;
+    }
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 4px;
+}
+

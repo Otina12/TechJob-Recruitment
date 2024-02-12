@@ -1,0 +1,139 @@
+﻿﻿body, html {
+    height: 0%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.profile-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content {
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0.1px 1px rgba(0,0,0,0.2);
+}
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0.25px 5px rgba(0,0,0,0.2);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+    .profile-card .card-body p {
+        color: #333;
+        margin: 10px 0;
+    }
+
+.profile-company-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    display: block;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.profile-image-placeholder {
+    background-color: #e0e0e0;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    color: #757575;
+}
+
+.action-icon1 {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+    .action-icon1:hover {
+        transition: 0.1s ease-in-out;
+        transform: scale(1.1);
+    }
+
+.applicant-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+    .applicant-container:hover {
+        color: #737272;
+    }
+
+        .applicant-container:hover .applicant-link {
+            color: inherit;
+        }
+
+.applicant-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #454545;
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.applicant-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    min-width: 75px;
+}
+
+
+#statusChangeModal {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Keep modal hidden until it needs to be shown */
+}
+
+    /* Modal title */
+    #statusChangeModal h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 20px;
+    }
+
+    /* Modal buttons */
+    #statusChangeModal button {
+        padding: 6px 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+
+        #statusChangeModal button:last-child {
+            margin-right: 0;
+        }
+
+    /* Hidden inputs */
+    #statusChangeModal input {
+        display: none; /* Hide inputs */
+    }

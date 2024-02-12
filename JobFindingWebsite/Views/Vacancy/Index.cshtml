@@ -1,0 +1,228 @@
+﻿@using JobFindingWebsite.Data.Enum;
+@model IEnumerable<Vacancy>
+@{
+    ViewData["Title"] = "Find a Job";
+}
+
+<head>
+    <link rel="stylesheet" href="/css/index-jobcard.css" asp-append-version="true">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: center;">
+            <div class="search">
+                <span class="material-symbols-outlined search-icon">search</span>
+                <input id="search-input" type="search" class="search-input" placeholder="Search" />
+            </div>
+            <button id="search-button" type="button" class="search-btn">Search</button>
+        </div>
+        <div class="content">
+            <aside class="filter-sidebar">
+                <div class="filter-section">
+                    <h5>Location</h5>
+                    <select id="locationSelect" class="form-control form-control-lg" asp-items="@(SelectList)ViewBag.AllLocations">
+                        <option value="any">Any</option>
+                    </select>
+                    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+                    <h5>Languages</h5>
+                    <select id="languagesSelect" class="form-control form-control-lg" style="margin-bottom: 5px;" data-filter-type="language" asp-items="@(SelectList)ViewBag.LanguagesList">
+                        <option value="any">Any</option>
+                    </select>
+                    <div id="selectedLanguages"></div>
+
+                    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+
+                    <h5>Frameworks</h5>
+                    <select id="frameworksSelect" class="form-control form-control-lg" style="margin-bottom: 5px;" data-filter-type="framework" asp-items="@(SelectList)ViewBag.FrameworksList">
+                        <option value="any">Any</option>
+                    </select>
+                    <div id="selectedFrameworks"></div>
+                    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+                    <h5>Job Type</h5>
+                    @foreach (var jt in Enum.GetValues(typeof(JobType)))
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="JobType" id="@jt" value="@jt" onclick="unselectRadio(this)">
+                            <label class="form-check-label" for="@jt">
+                                @jt
+                            </label>
+                        </div>
+                    }
+                    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+                    <h5>Hour Type</h5>
+                    @foreach (var ht in Enum.GetValues(typeof(HoursType)))
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="HoursType" id="@ht" value="@ht" onclick="unselectRadio(this)">
+                            <label class="form-check-label" for="@ht">
+                                @ht
+                            </label>
+                        </div>
+                    }
+                    <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+                    <h5>Seniority</h5>
+                    @foreach (var sen in Enum.GetValues(typeof(SeniorityCategory)))
+                    {
+                        if (sen.ToString() != "NotApplicable")
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="SeniorityCategory" id="@sen" value="@sen" onclick="unselectRadio(this)">
+                                <label class="form-check-label" for="@sen">
+                                    @sen
+                                </label>
+                            </div>
+                        }
+                    }
+                </div>
+            </aside>
+            <section class="job-cards-section">
+                @foreach (var v in Model)
+                {
+                    <div class="job-card" data-location="@v.City">
+                        <div class="job-content">
+                            <div class="job-header">
+                                <h2 class="job-title">@v.Title</h2>
+                                <div class="company-logo">
+                                    @if (@v.Company.ImagePath == null)
+                                    {
+                                        <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                                            <img src="/profile/pfps/placeholder.png" alt="Company Logo" class="logo-image" />
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                                            <img src="@v.Company.ImagePath" alt="Company Logo" class="logo-image" />
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                            <p>By <a style="text-decoration: none; color: dodgerblue" asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId">@v.Company.UserName</a></p>
+                            <div class="job-info">
+                                <div class="job-info-item">
+                                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                        payments
+                                    </span>
+                                    <span class="job-info-text">@(v.Salary == "" ? "Depends" : $"${v.Salary}")</span>
+                                </div>
+                                <div class="job-info-item">
+                                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                        location_on
+                                    </span>
+                                    <span class="job-info-text">@(v.City == "" ? "Any" : v.City)</span>
+                                </div>
+                                <div class="job-info-item">
+                                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                        overview
+                                    </span>
+                                    <span class="job-info-text">@v.HoursType</span>
+                                </div>
+                                <div class="job-info-item">
+                                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                        diversity_3
+                                    </span>
+                                    <span class="job-info-text">@v.JobType</span>
+                                </div>
+                            </div>
+                            <a class="see-more" asp-controller="Vacancy" asp-action="Details" asp-route-id="@v.Id">See Details</a>
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+</body>
+
+<script>
+    $('#languagesSelect, #frameworksSelect').change(function () {
+        var selectedOption = $(this).find(':selected');
+        var optionText = selectedOption.text();
+        var optionValue = selectedOption.val();
+
+        var selectedTag = $('<span class="skill-tag">' + optionText + '<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></span>');
+        selectedTag.data('value', optionValue);
+
+        selectedTag.find('button').click(function () {
+            $(this).parent().remove();
+            applyFilters();
+        });
+
+        if ($(this).attr('id') === 'languagesSelect') {
+            $('#selectedLanguages').append(selectedTag);
+        } else {
+            $('#selectedFrameworks').append(selectedTag);
+        }
+    });
+
+    $("#search-button").on("click", function () {
+        applyFilters();
+    });
+
+    $('.filter-sidebar select, .filter-sidebar input[type="radio"]').on("change", function () {
+        applyFilters();
+    });
+
+    var input = document.getElementById("search-input");
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            applyFilters();
+        }
+    });
+
+    var prevSelected = null;
+    function unselectRadio(radio) {
+        if (prevSelected == radio) {
+            radio.checked = false;
+            prevSelected = null;
+            applyFilters();
+        } else {
+            prevSelected = radio;
+        }
+    }
+
+    function applyFilters() {
+        var searchQuery = $(".search-input").val().trim();
+        var selectedLocation = $('#locationSelect').val();
+        var selectedJobType = $('input[name="JobType"]:checked').val();
+        var selectedHoursType = $('input[name="HoursType"]:checked').val();
+        var selectedSeniority = $('input[name="SeniorityCategory"]:checked').val();
+
+        var selectedLanguages = $('#selectedLanguages .skill-tag').map(function () {
+            return $(this).data('value');
+        }).get();
+
+        var selectedFrameworks = $('#selectedFrameworks .skill-tag').map(function () {
+            return $(this).data('value');
+        }).get();
+
+        selectedLocation = selectedLocation === "any" ? "" : selectedLocation;
+        selectedJobType = selectedJobType ? selectedJobType : '';
+        selectedHoursType = selectedHoursType ? selectedHoursType : '';
+        selectedSeniority = selectedSeniority ? selectedSeniority : '';
+
+        var ajaxUrl = '/Vacancy/Filter';
+
+        $.ajax({
+            url: ajaxUrl,
+            type: 'GET',
+            data: {
+                searchQuery: searchQuery,
+                languageIds: selectedLanguages.join(','),
+                frameworkIds: selectedFrameworks.join(','),
+                location: selectedLocation,
+                jobType: selectedJobType,
+                hoursType: selectedHoursType,
+                seniority: selectedSeniority
+            },
+            success: function (data) {
+                $(".job-cards-section").html(data);
+            },
+            error: function (xhr, status, error) {
+                console.error("An error occurred: " + error);
+            }
+        });
+    }
+
+</script>

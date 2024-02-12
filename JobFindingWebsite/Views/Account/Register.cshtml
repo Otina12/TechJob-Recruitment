@@ -1,0 +1,53 @@
+﻿@using JobFindingWebsite.ViewModels;
+@model RegisterViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Register";
+}
+
+<br />
+<head>
+    <link rel="stylesheet" href="/css/registerstyle.css">
+</head>
+
+<body>
+    <div class="myForm-wrapper">
+        <div class="title">
+            Register Form
+        </div>
+        <form asp-action="Register" method="post">
+            <div class="myForm-field">
+                <input asp-for="Email" type="text" class="form-control" required>
+                <label asp-for="Email">Email Address</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="myForm-field">
+                <input asp-for="Password" type="password" class="form-control" required>
+                <label asp-for="Password">Password</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="myForm-field">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" required>
+                <label asp-for="ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="myForm-content" style="margin-top: 6px;">
+                <div class="myForm-checkbox">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <div class="myForm-pass-link">
+                    <a asp-controller="Account" asp-action="RegisterCompany">Are you a company?</a>
+                </div>
+            </div>
+            <div class="myForm-field">
+                <input type="submit" value="Register" class="btn custom-button">
+            </div>
+            <div class="myForm-pass-link" style="text-align: center; margin-top: 10px; font-size: 16.5px">
+                <a asp-controller="Account" asp-action="Login">Have an account? Sign In</a>
+            </div>
+        </form>
+    </div>
+</body>

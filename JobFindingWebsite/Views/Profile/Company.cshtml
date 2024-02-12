@@ -1,0 +1,135 @@
+﻿@using System.Security.Claims;
+@model Company
+@{
+    ViewData["Title"] = "Company Profile";
+    var curId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+<head>
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="~/css/jobcard.css" />
+    <link rel="stylesheet" href="/css/profilepage.css" asp-append-version="true">
+</head>
+
+<br />
+<div class="profile-container">
+    <div class="profile-content">
+        <div style="text-align: center; position: relative;">
+            @if (Model.Id == curId)
+            {
+                <a class="action-icon1" href="@Url.Action("Edit", "Profile", new { id = Model.Id })"
+                   style="position: absolute; top: 0; right: 0; margin-right: 4px;">
+                    <img src="/lib/Logos/edit-icon.png" alt="Edit" style="width: 22px; height: 22px;" />
+                </a>
+            }
+
+            @if (Model.ImagePath == null)
+            {
+                <div class="profile-image-placeholder" aria-label="No image available"
+                     style="margin: auto; display: block; width: 100px; height: 100px; background-color: #e0e0e0;"></div>
+            }
+            else
+            {
+                <img class="profile-company-logo" src="@Model.ImagePath" alt="Logo"
+                     style="margin: auto; display: block; max-width: 100px; height: auto;">
+            }
+
+            <div class="profile-header-text" style="margin-top: 10px;">
+                <h1>@Model.UserName</h1>
+                <p>@Model.CompanyType • @Model.NumberOfEmployees Employees</p>
+            </div>
+        </div>
+
+        <hr style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);" />
+        <div style="margin-left: 15px;">
+            <h3 style="margin-bottom: 25px;"><b>About</b></h3>
+            <p><b>Description</b></p>
+            <p style="margin-bottom: 25px;">@Html.Raw(Model.Description)</p>
+            <p><b>Industry</b></p>
+            <p style="margin-bottom: 25px;">@Model.CompanyType</p>
+            <p><b>Number of Employees</b></p>
+            <p style="margin-bottom: 25px;">@Model.NumberOfEmployees</p>
+            <p><b>LinkedIn: </b> <a style="text-decoration: none;" href="@Model.LinkedInURL" target="_blank"> LinkedIn Profile</a></p>
+        </div>
+    </div>
+    <div class="profile-content">
+        <h3 style="margin-bottom: 25px;"><b>Active vacancies</b></h3>
+        @foreach (var v in Model.Vacancies)
+        {
+            <div class="job-card" style="width: 100%;">
+                <div class="job-content">
+                    <div class="job-header">
+                        <h2 class="job-title">@v.Title</h2>
+                    </div>
+                    <br>
+                    <div class="job-info">
+                        @if (v.CompanyId == curId)
+                        {
+                            <div class="action-icons">
+                                <a asp-controller="Vacancy" asp-action="Edit" asp-route-id="@v.Id">
+                                    <img src="/lib/Logos/edit-icon.png" alt="Edit" class="action-icon" />
+                                </a>
+                                <a asp-controller="Vacancy" asp-action="Delete" asp-route-id="@v.Id">
+                                    <img src="/lib/Logos/remove-icon.png" alt="Remove" class="action-icon" />
+                                </a>
+                            </div>
+                        }
+                        <div class="job-info-item">
+                            <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                payments
+                            </span>
+                            <span class="job-info-text">@(v.Salary == "" ? "Depends" : $"${v.Salary}")</span>
+                        </div>
+                        <div class="job-info-item">
+                            <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                location_on
+                            </span>
+                            <span class="job-info-text">@(v.City == "" ? "Any" : v.City)</span>
+                        </div>
+                        <div class="job-info-item">
+                            <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                overview
+                            </span>
+                            <span class="job-info-text">@v.HoursType</span>
+                        </div>
+                        <div class="job-info-item">
+                            <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                                diversity_3
+                            </span>
+                            <span class="job-info-text">@v.JobType</span>
+                        </div>
+                    </div>
+                    @if (v.CompanyId == curId)
+                    {
+                        <a class="analytics" asp-controller="Vacancy" asp-action="Analytics" asp-route-id="@v.Id" style="display: flex; align-items: center; text-decoration: none;">
+                            <span class="material-symbols-outlined" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                                finance
+                            </span>
+                            Analytics
+                        </a>
+
+                    }
+                    else
+                    {
+                        <div class="company-logo">
+                            @if (@v.Company.ImagePath == null)
+                            {
+                                <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                                    <img src="/profile/pfps/placeholder.png" alt="Company Logo" class="logo-image" />
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                                    <img src="@v.Company.ImagePath" alt="Company Logo" class="logo-image" />
+                                </a>
+                            }
+                        </div>
+                        <a class="see-more" asp-controller="Vacancy" asp-action="Details" asp-route-id="@v.Id">See Details</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

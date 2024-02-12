@@ -1,0 +1,195 @@
+﻿﻿@using JobFindingWebsite.Extensions;
+@using JobFindingWebsite.ViewModels;
+@using JobFindingWebsite.Data.Enum;
+@using System.Security.Claims;
+@model EditVacancyViewModel
+
+@{
+    ViewData["Title"] = "Edit Vacancy";
+}
+
+
+<div class="form-container" style="font-family: Poppins">
+    <form method="post" asp-action="Create">
+
+        <div class="form-group">
+            <label asp-for="Title" class="required-field">Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Title">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="required-field">Description</label>
+            <textarea asp-for="Description" class="form-control" placeholder="Description"
+                      oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Salary">Salary</label>
+            <input asp-for="Salary" class="form-control" placeholder="Leave empty if depends">
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="City" class="required-field">City</label>
+            <input asp-for="City" class="form-control" placeholder="City">
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                <label asp-for="HoursType" class="required-field">Hours Type</label>
+                <select asp-for="HoursType" class="form-control form-control-lg"
+                        asp-items="@Html.GetEnumSelectList<HoursType>().Select(x =>
+        new SelectListItem { Value = x.Value, Text =
+        EnumExtension.GetDisplayName((HoursType)Enum.Parse(typeof(HoursType), x.Text)) })">
+                    <option></option>
+                </select>
+                <span asp-validation-for="HoursType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seniority" class="required-field">Seniority</label>
+                <select asp-for="Seniority" class="form-control form-control-lg"
+                        asp-items="@Html.GetEnumSelectList<SeniorityCategory>().Select(x =>
+        new SelectListItem { Value = x.Value, Text =
+        EnumExtension.GetDisplayName((SeniorityCategory)Enum.Parse(typeof(SeniorityCategory), x.Text)) })">
+                    <option></option>
+                </select>
+                <span asp-validation-for="Seniority" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                <label asp-for="JobType" class="required-field">Job Type</label>
+                <select asp-for="JobType" class="form-control form-control-lg"
+                        asp-items="@Html.GetEnumSelectList<JobType>().Select(x =>
+        new SelectListItem { Value = x.Value, Text =
+        EnumExtension.GetDisplayName((JobType)Enum.Parse(typeof(JobType), x.Text)) })">
+                    <option></option>
+                </select>
+                <span asp-validation-for="JobType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpireDate" class="required-field">Expire Date</label>
+                <input asp-for="ExpireDate" class="form-control" type="date">
+                <span asp-validation-for="ExpireDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="form-group">
+                <label asp-for="ProgrammingLanguages" class="required-field">Required Languages:</label>
+                <select asp-for="ProgrammingLanguages" class="form-control" asp-items="(SelectList)ViewBag.LanguagesList" multiple>
+                </select>
+                <span asp-validation-for="ProgrammingLanguages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Frameworks" class="required-field">Required Frameworks:</label>
+                <select asp-for="Frameworks" class="form-control" asp-items="(SelectList)ViewBag.FrameworksList" multiple>
+                </select>
+                <span asp-validation-for="Frameworks" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" style="display: flex; justify-content: center; align-items: center; margin-top: 25px;">
+            <input asp-controller="Vacancy" asp-action="Edit" type="submit" value="Save Changes" class="btn btn-primary">
+        </div>
+
+
+    </form>
+</div>
+
+
+<style>
+    body, input, select, textarea, button {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .required-field::after {
+        content: "*";
+        color: red;
+    }
+
+    .form-container {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input.form-control,
+    textarea.form-control,
+    select.form-control {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: .75rem;
+        font-size: 1rem;
+    }
+
+        input.form-control:focus,
+        textarea.form-control:focus,
+        select.form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+    ::placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+        .flex-container > .form-group {
+            flex: 1;
+            min-width: calc(50% - 20px);
+        }
+
+
+
+    {
+        flex-direction: column;
+    }
+
+    .flex-container > .form-group {
+        min-width: 100%;
+    }
+
+    }
+
+    button.btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 15px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+        button.btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+    .text-danger {
+        display: block;
+        margin-top: 5px;
+        font-size: 0.875em;
+    }
+</style>

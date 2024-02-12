@@ -1,0 +1,175 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head style="font-family: Poppins">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JobFindingWebsite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" title="Poppins">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body style="font-family: Poppins">
+    <header class="bg-dark text-white" style="padding-top: 10px; padding-bottom: 6px;">
+        <div class="container">
+            <nav class="d-flex flex-wrap align-items-center justify-content-between" style="font-size:18px">
+                <div class="d-flex align-items-center">
+                    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none logo-margin">
+                        <img style="border-radius: 10px; margin-right: 5px; padding-bottom: 10px; height: 80px" src="/lib/Logos/logo.png" alt="Logo">
+                    </a>
+                    <ul class="nav">
+                        <li>
+                            <div class="clickable-block">
+                                <a class="nav-link px-2 text-white" asp-controller="Home" asp-action="Index">
+                                    <span class="material-symbols-outlined" style="margin-top: 4px;">home</span>
+                                    <span class="nav-link text-white" style="margin-bottom: -4px;">Home</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clickable-block">
+                                <a class="nav-link px-2 text-white" asp-controller="Vacancy" asp-action="Index">
+                                    <span class="material-symbols-outlined" style="margin-top: 4px;">travel_explore</span>
+                                    <span class="nav-link text-white" style="margin-bottom: -4px;">Find Job</span>
+                                </a>
+                            </div>
+                        </li>
+                        @if (User.IsInRole("user"))
+                        {
+                            <li>
+                                <div class="clickable-block">
+                                    <a class="nav-link px-2 text-white" asp-controller="Vacancy" asp-action="Favorites" asp-route-id="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                        <span class="material-symbols-outlined" style="margin-top: 4px;">favorite</span>
+                                        <span class="nav-link text-white" style="margin-bottom: -4px;">Favorites</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="clickable-block">
+                                    <a class="nav-link px-2 text-white" asp-controller="Vacancy" asp-action="Applied" asp-route-id="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                        <span class="material-symbols-outlined" style="margin-top: 4px;">work</span>
+                                        <span class="nav-link text-white" style="margin-bottom: -4px;">Applied</span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <ul class="nav">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <div class="clickable-block">
+                                <a class="nav-link px-2 text-white" asp-controller="Account" asp-action="Login">
+                                    <span class="material-symbols-outlined" style="margin-top: 4px;">login</span>
+                                    <span class="nav-link text-white" style="margin-bottom: -4px;">Sign In</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clickable-block">
+                                <a class="nav-link px-2 text-white" asp-controller="Account" asp-action="Register">
+                                    <span class="material-symbols-outlined" style="margin-top: 4px;">account_circle</span>
+                                    <span class="nav-link text-white" style="margin-bottom: -4px;">Register</span>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        if (User.IsInRole("company"))
+                        {
+                            <li style="margin-right: 5px;">
+                                <div class="clickable-block">
+                                    <a asp-controller="Vacancy" asp-action="Create">
+                                        <span class="material-symbols-outlined" style="margin-top: 4px;">add_notes</span>
+                                        <span class="nav-link text-white" style="margin-bottom: -4px;">Post Job</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li style="margin-right: 5px;">
+                                <div class="clickable-block">
+                                    <a asp-controller="Profile" asp-action="Company" asp-route-id="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                        <span class="material-symbols-outlined" style="margin-top: 4px;">person</span>
+                                        <span class="nav-link text-white" style="margin-bottom: -4px;">Profile</span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        else if (User.IsInRole("user"))
+                        {
+                            <li style="margin-right: 5px;">
+                                <div class="clickable-block">
+                                    <a asp-controller="Profile" asp-action="AppUser" asp-route-id="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                        <span class="material-symbols-outlined" style="margin-top: 4px;">person</span>
+                                        <span class="nav-link text-white" style="margin-bottom: -4px;">Profile</span>
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        <li>
+                            <div class="clickable-block">
+                                <a asp-controller="Account" asp-action="Logout">
+                                    <span class="material-symbols-outlined" style="margin-top: 4px;">logout</span>
+                                    <span class="nav-link text-white" style="margin-bottom: -4px;">Log out</span>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-3 mb-3" style="margin-right: 80px;">
+                    <h5>About JobFindingWebsite</h5>
+                    <p class="text-muted">
+                        Your ultimate platform for finding the best tech jobs tailored to your skills.
+                        We connect talented individuals with their dream jobs.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li>Email: support@jobfindingwebsite.com</li>
+                        <li>Phone: +995 599 99 99 99</li>
+                        <li>Address: 308 Negra Arroyo Lane, Albuquerque, New Mexico</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-white" style="margin-bottom: 15px;">Follow Us</h5>
+                    <div class="social-links" style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="text-white mb-2" style="text-decoration: none;">Facebook</a>
+                        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="text-white mb-2" style="text-decoration: none;">Twitter</a>
+                        <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank" class="text-white" style="text-decoration: none;">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3">
+                <p class="text-muted">&copy; 2024 JobFindingWebsite. All rights reserved. <a href="@Url.Action("Privacy", "Home")" class="text-white" style="text-decoration: none">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

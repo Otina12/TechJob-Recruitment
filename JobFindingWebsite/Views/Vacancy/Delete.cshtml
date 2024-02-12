@@ -1,0 +1,18 @@
+﻿@using System.Security.Claims;
+@model Vacancy
+
+@{
+    ViewData["Title"] = "Delete Vacancy";
+    var curCompanyId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+<br />
+<h2>Delete Vacancy</h2>
+
+<p>Are you sure you want to delete the vacancy <b>@Model.Title</b>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="name" value="@Model" />
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a asp-controller="Vacancy" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-default">Cancel</a>
+</form>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Vacancy>
+
+@{
+    ViewData["Title"] = "Saved Jobs";
+}
+
+<link rel="stylesheet" href="/css/jobcard.css" asp-append-version="true">
+
+<br />
+<h2 style="text-align: center;">Your Saved Jobs</h2>
+<br />
+@foreach (var v in Model)
+{
+    <div class="job-card">
+        <div class="job-content">
+            <div class="job-header">
+                <h2 class="job-title">@v.Title</h2>
+                <div class="company-logo">
+                    @if (@v.Company.ImagePath == null)
+                    {
+                        <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                            <img src="/profile/pfps/placeholder.png" alt="Company Logo" class="logo-image" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId" class="logo-image-link">
+                            <img src="@v.Company.ImagePath" alt="Company Logo" class="logo-image" />
+                        </a>
+                    }
+                </div>
+            </div>
+            <p>By <a style="text-decoration: none; color: dodgerblue" asp-controller="Profile" asp-action="Company" asp-route-id="@v.CompanyId">@v.Company.UserName</a></p>
+            <div class="job-info">
+                <div class="job-info-item">
+                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                        payments
+                    </span>
+                    <span class="job-info-text">@(v.Salary == "" ? "Depends" : $"${v.Salary}")</span>
+                </div>
+                <div class="job-info-item">
+                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                        location_on
+                    </span>
+                    <span class="job-info-text"><span class="job-info-text">@(v.City == "" ? "Any" : v.City)</span></span>
+                </div>
+                <div class="job-info-item">
+                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                        overview
+                    </span>
+                    <span class="job-info-text">@v.HoursType</span>
+                </div>
+                <div class="job-info-item">
+                    <span class="material-symbols-outlined" style="margin-bottom: 3.5px;">
+                        diversity_3
+                    </span>
+                    <span class="job-info-text">@v.JobType</span>
+                </div>
+            </div>
+            <a class="see-more" asp-controller="Vacancy" asp-action="Details" asp-route-id="@v.Id">See Details</a>
+        </div>
+    </div>
+}
