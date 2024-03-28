@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Company Profile";
     var curId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    var vacancies = Model.Vacancies.Where(v => DateTime.Compare(v.ExpireDate, DateTime.Now) > 0);
 }
 
 <head>
@@ -54,7 +55,7 @@
     </div>
     <div class="profile-content">
         <h3 style="margin-bottom: 25px;"><b>Active vacancies</b></h3>
-        @foreach (var v in Model.Vacancies)
+        @foreach (var v in vacancies)
         {
             <div class="job-card" style="width: 100%;">
                 <div class="job-content">

@@ -23,7 +23,7 @@ namespace JobFindingWebsite.Controllers
         [Authorize]
         public async Task<IActionResult> Company(string Id)
         {
-            var company = _accountRepository.getCompanyById(Id);
+            var company = await _accountRepository.getCompanyById(Id);
             return View(company);
         }
 
@@ -52,18 +52,18 @@ namespace JobFindingWebsite.Controllers
 
             if (User.IsInRole("user"))
             {
-                var user = _accountRepository.getUserById(Id);
+                var user = await _accountRepository.getUserById(Id);
 
                 editUserVM = new EditUserViewModel()
                 {
-                    CV = user.CV,
+                    CV = user!.CV,
                     CVpdf = user.CvPDF,
                     GitHubURL = user.GitHubURL,
                 };
             }
             else if (User.IsInRole("company"))
             {
-                var company = _accountRepository.getCompanyById(Id);
+                var company = await _accountRepository.getCompanyById(Id);
 
                 editCompanyVM = new EditCompanyViewModel()
                 {
@@ -72,14 +72,14 @@ namespace JobFindingWebsite.Controllers
                 };
             }
 
-            var account = _accountRepository.getAccountById(Id);
+            var account = await _accountRepository.getAccountById(Id);
 
 
             viewModel = new EditAccountViewModel()
             {
                 User = editUserVM,
                 Company = editCompanyVM,
-                UserName = account.UserName!,
+                UserName = account!.UserName!,
                 LinkedInURL = account.LinkedInURL,
                 Description = account.Description?.Replace("<br />", "\r\n"),
                 ImageUrl = account.ImagePath
@@ -125,7 +125,7 @@ namespace JobFindingWebsite.Controllers
 
             if (User.IsInRole("user"))
             {
-                var user = _accountRepository.getUserById(currentUserId!);
+                var user = await _accountRepository.getUserById(currentUserId!);
 
                 if (user == null)
                 {
@@ -142,7 +142,7 @@ namespace JobFindingWebsite.Controllers
             }
             else if (User.IsInRole("company"))
             {
-                var company = _accountRepository.getCompanyById(currentUserId!);
+                var company = await _accountRepository.getCompanyById(currentUserId!);
                 if (company == null)
                 {
                     return NotFound();

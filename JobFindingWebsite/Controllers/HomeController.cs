@@ -25,7 +25,7 @@ namespace JobFindingWebsite.Controllers
             var numOfUsers = allUsers.Count();
             var allCompanies = await _accountRepository.getAllCompanies();
             var numOfCompanies = allCompanies.Count();
-            var allVacancies = await _vacancyRepository.getAllVacancies();
+            var allVacancies = await _vacancyRepository.GetAllVacancies();
             var numOfVacancies = allVacancies.Count();
 
             var homeVM = new HomeNumbersViewModel()

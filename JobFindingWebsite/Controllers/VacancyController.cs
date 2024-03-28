@@ -33,14 +33,14 @@ namespace JobFindingWebsite.Controllers
         // Note to self: In the future, add user skills (languages and frameworks) and order vacancies by which vacancies more apply to user.
         public async Task<IActionResult> Index()
         {
-            var allLocations = await _vacancyRepository.getAllLocations()!;
+            var allLocations = await _vacancyRepository.GetAllLocations()!;
             var allLocationsMinusNull = allLocations.Where(v => v != "");
             var programmingLanguages = await _languageRepository.GetAllLanguages();
             var frameworks = await _frameworkRepository.GetAllFrameworks();
             ViewBag.LanguagesList = new SelectList(programmingLanguages, "Id", "Name");
             ViewBag.FrameworksList = new SelectList(frameworks, "Id", "Name");
             ViewBag.AllLocations = new SelectList(allLocationsMinusNull);
-            var allVacancies = await _vacancyRepository.getAllVacancies();
+            var allVacancies = await _vacancyRepository.GetAllVacancies();
             return View(allVacancies);
         }
 
@@ -98,7 +98,7 @@ namespace JobFindingWebsite.Controllers
             ViewBag.LanguagesList = new SelectList(programmingLanguages, "Id", "Name");
             ViewBag.FrameworksList = new SelectList(frameworks, "Id", "Name");
 
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
             if (vacancy == null) { return View("Error"); }
 
             var curCompanyId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -136,7 +136,7 @@ namespace JobFindingWebsite.Controllers
                 return View(vacancyVM);
             }
 
-            var vacancy = await _vacancyRepository.getVacancyById(vacancyVM.Id);
+            var vacancy = await _vacancyRepository.GetVacancyById(vacancyVM.Id);
 
             if (!vacancyVM.ProgrammingLanguages.IsNullOrEmpty())
             {
@@ -178,7 +178,7 @@ namespace JobFindingWebsite.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(int Id)
         {
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
             _vacancyRepository.IncrementViewCount(vacancy);
             var languages = await _languageRepository.GetLanguagesOfVacancy(vacancy);
             var frameworks = await _frameworkRepository.GetFrameworksOfVacancy(vacancy);
@@ -189,9 +189,9 @@ namespace JobFindingWebsite.Controllers
 
             if (User.IsInRole("user") && curUserId != null)
             {
-                var curUser = _accountRepository.getUserById(curUserId);
-                isApplied = (await _favAndSav.getAppliedVacancies(curUser)).Contains(vacancy);
-                isSaved = (await _favAndSav.getSavedVacancies(curUser)).Contains(vacancy);
+                var curUser = await _accountRepository.getUserById(curUserId);
+                isApplied = (await _favAndSav.getAppliedVacancies(curUser!)).Contains(vacancy);
+                isSaved = (await _favAndSav.getSavedVacancies(curUser!)).Contains(vacancy);
             }
 
             var vacancyDetailsVM = new VacancyDetailsViewModel()
@@ -211,7 +211,7 @@ namespace JobFindingWebsite.Controllers
         [Authorize(Roles = "company")]
         public async Task<IActionResult> Delete(int Id)
         {
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
             var curCompanyId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (curCompanyId != vacancy.CompanyId) { return View("Error"); }
 
@@ -243,7 +243,7 @@ namespace JobFindingWebsite.Controllers
         [Authorize(Roles = "user")]
         public async Task<IActionResult> Favorites(string Id)
         {
-            var curUser = _accountRepository.getUserById(Id);
+            var curUser = await _accountRepository.getUserById(Id);
             var vacancies = await _favAndSav.getSavedVacancies(curUser);
             return View(vacancies);
         }
@@ -252,7 +252,7 @@ namespace JobFindingWebsite.Controllers
         [Authorize(Roles = "user")]
         public async Task<IActionResult> Applied(string Id)
         {
-            var curUser = _accountRepository.getUserById(Id);
+            var curUser = await _accountRepository.getUserById(Id);
             var vacancies = await _favAndSav.getAppliedVacancies(curUser);
             return View(vacancies);
 
@@ -263,8 +263,8 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> SaveToFavorites(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = _accountRepository.getUserById(curUserId!);
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var curUser = await _accountRepository.getUserById(curUserId!);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
@@ -279,8 +279,8 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> RemoveFromFavorites(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = _accountRepository.getUserById(curUserId!);
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var curUser = await _accountRepository.getUserById(curUserId!);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
@@ -295,8 +295,8 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Apply(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = _accountRepository.getUserById(curUserId!);
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var curUser = await _accountRepository.getUserById(curUserId!);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
@@ -311,8 +311,8 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Unapply(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = _accountRepository.getUserById(curUserId!);
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var curUser = await _accountRepository.getUserById(curUserId!);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
@@ -327,8 +327,7 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Analytics(int Id)
         {
             var curCompanyId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curCompany = _accountRepository.getCompanyById(curCompanyId!);
-            var vacancy = await _vacancyRepository.getVacancyById(Id);
+            var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (vacancy.CompanyId != curCompanyId)
             {
@@ -353,13 +352,13 @@ namespace JobFindingWebsite.Controllers
             return View(analyticsVM);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> ChangeStatus(string userId, int vacancyId, string statusString)
         {
             StatusType status = (StatusType)Enum.Parse(typeof(StatusType), statusString);
-            var user = _accountRepository.getUserById(userId);
-            var vacancy = await _vacancyRepository.getVacancyById(vacancyId);
-            await _favAndSav.setStatusOfApplicant(user, vacancy, status);
+            var user = await _accountRepository.getUserById(userId);
+            var vacancy = await _vacancyRepository.GetVacancyById(vacancyId);
+            await _favAndSav.setStatusOfApplicant(user!, vacancy, status);
 
             return Json(new { success = true, redirectUrl = Url.Action("Analytics", "Vacancy", new { id = vacancyId }) });
         }
@@ -368,7 +367,7 @@ namespace JobFindingWebsite.Controllers
         // However, if only languages are selected (frameworks are not), then at least 1 language needs to be selected (frameworks don't matter) and vice versa.
         public async Task<IActionResult> Filter(string searchQuery, string languageIds, string frameworkIds, string location, string jobType, string hoursType, string seniority)
         {
-            var query = await _vacancyRepository.getAllVacancies();
+            var query = await _vacancyRepository.GetAllVacancies();
             searchQuery = searchQuery != null ? searchQuery : "";
             
             if(searchQuery != "")

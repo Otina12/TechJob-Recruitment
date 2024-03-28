@@ -24,19 +24,19 @@ namespace JobFindingWebsite.Repositories
             return await _context.AppUsers.ToListAsync();
         }
 
-        public Company? getCompanyById(string Id)
+        public async Task<Company?> getCompanyById(string Id)
         {
-            return _context.Companies.Include(c => c.Vacancies).FirstOrDefault(c => c.Id == Id);
+            return await _context.Companies.Include(c => c.Vacancies).FirstOrDefaultAsync(c => c.Id == Id);
         }
 
-        public AppUser? getUserById(string Id)
+        public async Task<AppUser?> getUserById(string Id)
         {
-            return _context.AppUsers.FirstOrDefault(c => c.Id == Id);
+            return await _context.AppUsers.FirstOrDefaultAsync(c => c.Id == Id);
         }
 
-        public Account? getAccountById(string Id)
+        public async Task<Account?> getAccountById(string Id)
         {
-            return _context.Accounts.FirstOrDefault(c => c.Id == Id);
+            return await _context.Accounts.FirstOrDefaultAsync(c => c.Id == Id);
         }
 
         public bool Save()
