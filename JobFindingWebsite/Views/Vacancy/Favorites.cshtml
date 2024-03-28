@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Saved Jobs";
+    var vacancies = Model.Where(v => DateTime.Compare(v.ExpireDate, DateTime.Now) > 0);
 }
 
 <link rel="stylesheet" href="/css/jobcard.css" asp-append-version="true">
@@ -9,7 +10,7 @@
 <br />
 <h2 style="text-align: center;">Your Saved Jobs</h2>
 <br />
-@foreach (var v in Model)
+@foreach (var v in vacancies)
 {
     <div class="job-card">
         <div class="job-content">

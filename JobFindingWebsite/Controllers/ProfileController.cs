@@ -31,7 +31,7 @@ namespace JobFindingWebsite.Controllers
         [Authorize]
         public async Task<IActionResult> AppUser(string Id)
         {
-            var user = _accountRepository.GetUserById(Id);
+            var user = await _accountRepository.GetUserById(Id);
             return View(user);
         }
 

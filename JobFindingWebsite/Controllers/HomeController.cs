@@ -22,11 +22,11 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Index()
         {
             var allUsers = await _accountRepository.GetAllUsers();
-            var numOfUsers = allUsers.Count();
+            var numOfUsers = allUsers.Count; // it seems Count() of IEnumerable is O(n), so it's better to use in-memory count of List
             var allCompanies = await _accountRepository.GetAllCompanies();
-            var numOfCompanies = allCompanies.Count();
+            var numOfCompanies = allCompanies.Count;
             var allVacancies = await _vacancyRepository.GetAllVacancies();
-            var numOfVacancies = allVacancies.Count();
+            var numOfVacancies = allVacancies.Count;
 
             var homeVM = new HomeNumbersViewModel()
             {

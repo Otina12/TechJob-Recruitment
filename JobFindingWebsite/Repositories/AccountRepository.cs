@@ -14,12 +14,12 @@ namespace JobFindingWebsite.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Company>> GetAllCompanies()
+        public async Task<List<Company>> GetAllCompanies()
         {
             return await _context.Companies.ToListAsync();
         }
 
-        public async Task<IEnumerable<AppUser>> GetAllUsers()
+        public async Task<List<AppUser>> GetAllUsers()
         {
             return await _context.AppUsers.ToListAsync();
         }

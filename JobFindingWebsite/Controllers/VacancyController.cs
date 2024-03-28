@@ -244,7 +244,7 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Favorites(string Id)
         {
             var curUser = await _accountRepository.GetUserById(Id);
-            var vacancies = await _favAndSav.GetSavedVacancies(curUser);
+            var vacancies = await _favAndSav.GetSavedVacancies(curUser!);
             return View(vacancies);
         }
 

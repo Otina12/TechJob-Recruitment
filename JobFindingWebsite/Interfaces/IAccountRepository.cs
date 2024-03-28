@@ -5,9 +5,9 @@ namespace JobFindingWebsite.Interfaces
 {
     public interface IAccountRepository
     {
-        public Task<IEnumerable<AppUser>> GetAllUsers();
+        public Task<List<AppUser>> GetAllUsers();
         public Task<AppUser?> GetUserById(string Id);
-        public Task<IEnumerable<Company>> GetAllCompanies();
+        public Task<List<Company>> GetAllCompanies();
         public Task<Company?> GetCompanyById(string Id);
         public Task<Account?> GetAccountById(string Id);
         public bool Update(Account account);
