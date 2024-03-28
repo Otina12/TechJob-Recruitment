@@ -21,9 +21,9 @@ namespace JobFindingWebsite.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allUsers = await _accountRepository.getAllUsers();
+            var allUsers = await _accountRepository.GetAllUsers();
             var numOfUsers = allUsers.Count();
-            var allCompanies = await _accountRepository.getAllCompanies();
+            var allCompanies = await _accountRepository.GetAllCompanies();
             var numOfCompanies = allCompanies.Count();
             var allVacancies = await _vacancyRepository.GetAllVacancies();
             var numOfVacancies = allVacancies.Count();

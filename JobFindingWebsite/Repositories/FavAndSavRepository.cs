@@ -18,7 +18,7 @@ namespace JobFindingWebsite.Repositories
             _context = context;
         }
 
-        public bool addToSaved(AppUser user, Vacancy vacancy)
+        public bool AddToSaved(AppUser user, Vacancy vacancy)
         {
             var savedVacancy = new SavedVacancies { AppUser = user, AppUserId = user.Id, Vacancy = vacancy, VacancyId = vacancy.Id };
             if(!_context.SavedVacancies.Contains(savedVacancy))
@@ -28,7 +28,7 @@ namespace JobFindingWebsite.Repositories
             return Save();
         }
 
-        public bool addToApplied(AppUser user, Vacancy vacancy)
+        public bool AddToApplied(AppUser user, Vacancy vacancy)
         {
             var appliedVacancy = new AppliedVacancies { AppUser = user, AppUserId = user.Id, Vacancy = vacancy, VacancyId = vacancy.Id };
             if (!_context.AppliedVacancies.Contains(appliedVacancy))
@@ -38,7 +38,7 @@ namespace JobFindingWebsite.Repositories
             return Save();
         }
 
-        public bool removeFromSaved(AppUser user, Vacancy vacancy)
+        public bool RemoveFromSaved(AppUser user, Vacancy vacancy)
         {
             var savedVacancy = _context.SavedVacancies.FirstOrDefault(sv => sv.AppUserId == user.Id && sv.VacancyId == vacancy.Id);
             if(savedVacancy != null)
@@ -50,7 +50,7 @@ namespace JobFindingWebsite.Repositories
             return false;
         }
 
-        public bool removeFromApplied(AppUser user, Vacancy vacancy)
+        public bool RemoveFromApplied(AppUser user, Vacancy vacancy)
         {
             var appliedVacancy = _context.AppliedVacancies.FirstOrDefault(sv => sv.AppUserId == user.Id && sv.VacancyId == vacancy.Id);
             if (appliedVacancy != null)
@@ -62,7 +62,7 @@ namespace JobFindingWebsite.Repositories
             return false;
         }
 
-        public async Task<IEnumerable<Vacancy>> getSavedVacancies(AppUser user)
+        public async Task<IEnumerable<Vacancy>> GetSavedVacancies(AppUser user)
         {
             var result = await _context.SavedVacancies.Where(sv => sv.AppUserId == user.Id)
                 .Include(sv => sv.Vacancy)
@@ -71,7 +71,7 @@ namespace JobFindingWebsite.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<Vacancy>> getAppliedVacancies(AppUser user)
+        public async Task<IEnumerable<Vacancy>> GetAppliedVacancies(AppUser user)
         {
             var result = await _context.AppliedVacancies.Where(sv => sv.AppUserId == user.Id)
                 .Include(sv => sv.Vacancy)
@@ -80,7 +80,7 @@ namespace JobFindingWebsite.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<AppUser>> getAllApplicantsOfVacancy(Vacancy vacancy)
+        public async Task<IEnumerable<AppUser>> GetAllApplicantsOfVacancy(Vacancy vacancy)
         {
             var result = await _context.AppliedVacancies
                 .Where(av => av.VacancyId == vacancy.Id)
@@ -88,7 +88,7 @@ namespace JobFindingWebsite.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<AppUser>> getAllSaversOfVacancy(Vacancy vacancy)
+        public async Task<IEnumerable<AppUser>> GetAllSaversOfVacancy(Vacancy vacancy)
         {
             var result = await _context.SavedVacancies
                 .Where(av => av.VacancyId == vacancy.Id)
@@ -96,7 +96,7 @@ namespace JobFindingWebsite.Repositories
             return result;
         }
 
-        public async Task<StatusType?> getStatusOfApplicant(AppUser user, Vacancy vacancy)
+        public async Task<StatusType?> GetStatusOfApplicant(AppUser user, Vacancy vacancy)
         {
             var application = await _context.AppliedVacancies
                 .FirstOrDefaultAsync(a => a.AppUserId == user.Id && a.VacancyId == vacancy.Id);
@@ -104,7 +104,7 @@ namespace JobFindingWebsite.Repositories
             if (application == null) return null;
             else return application.Status;
         }
-        public async Task<bool> setStatusOfApplicant(AppUser user, Vacancy vacancy, StatusType status)
+        public async Task<bool> SetStatusOfApplicant(AppUser user, Vacancy vacancy, StatusType status)
         {
             var application = await _context.AppliedVacancies
                 .FirstOrDefaultAsync(a => a.AppUserId == user.Id && a.VacancyId == vacancy.Id);

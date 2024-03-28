@@ -189,9 +189,9 @@ namespace JobFindingWebsite.Controllers
 
             if (User.IsInRole("user") && curUserId != null)
             {
-                var curUser = await _accountRepository.getUserById(curUserId);
-                isApplied = (await _favAndSav.getAppliedVacancies(curUser!)).Contains(vacancy);
-                isSaved = (await _favAndSav.getSavedVacancies(curUser!)).Contains(vacancy);
+                var curUser = await _accountRepository.GetUserById(curUserId);
+                isApplied = (await _favAndSav.GetAppliedVacancies(curUser!)).Contains(vacancy);
+                isSaved = (await _favAndSav.GetSavedVacancies(curUser!)).Contains(vacancy);
             }
 
             var vacancyDetailsVM = new VacancyDetailsViewModel()
@@ -223,15 +223,15 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Delete(Vacancy vacancy)
         {
             var curCompanyId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var allWhoSaved = await _favAndSav.getAllSaversOfVacancy(vacancy);
-            var allWhoApplied = await _favAndSav.getAllApplicantsOfVacancy(vacancy);
+            var allWhoSaved = await _favAndSav.GetAllSaversOfVacancy(vacancy);
+            var allWhoApplied = await _favAndSav.GetAllApplicantsOfVacancy(vacancy);
             foreach (var user in allWhoSaved)
             {
-                _favAndSav.removeFromSaved(user, vacancy);
+                _favAndSav.RemoveFromSaved(user, vacancy);
             }
             foreach (var user in allWhoApplied)
             {
-                _favAndSav.removeFromApplied(user, vacancy);
+                _favAndSav.RemoveFromApplied(user, vacancy);
             }
 
             _vacancyRepository.Remove(vacancy);
@@ -243,8 +243,8 @@ namespace JobFindingWebsite.Controllers
         [Authorize(Roles = "user")]
         public async Task<IActionResult> Favorites(string Id)
         {
-            var curUser = await _accountRepository.getUserById(Id);
-            var vacancies = await _favAndSav.getSavedVacancies(curUser);
+            var curUser = await _accountRepository.GetUserById(Id);
+            var vacancies = await _favAndSav.GetSavedVacancies(curUser);
             return View(vacancies);
         }
 
@@ -252,8 +252,8 @@ namespace JobFindingWebsite.Controllers
         [Authorize(Roles = "user")]
         public async Task<IActionResult> Applied(string Id)
         {
-            var curUser = await _accountRepository.getUserById(Id);
-            var vacancies = await _favAndSav.getAppliedVacancies(curUser);
+            var curUser = await _accountRepository.GetUserById(Id);
+            var vacancies = await _favAndSav.GetAppliedVacancies(curUser);
             return View(vacancies);
 
         }
@@ -263,12 +263,12 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> SaveToFavorites(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = await _accountRepository.getUserById(curUserId!);
+            var curUser = await _accountRepository.GetUserById(curUserId!);
             var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
-                _favAndSav.addToSaved(curUser, vacancy);
+                _favAndSav.AddToSaved(curUser, vacancy);
             }
 
             return RedirectToAction("Favorites", "Vacancy", new { id = curUserId });
@@ -279,12 +279,12 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> RemoveFromFavorites(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = await _accountRepository.getUserById(curUserId!);
+            var curUser = await _accountRepository.GetUserById(curUserId!);
             var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
-                _favAndSav.removeFromSaved(curUser, vacancy);
+                _favAndSav.RemoveFromSaved(curUser, vacancy);
             }
 
             return RedirectToAction("Favorites", "Vacancy", new { id = curUserId });
@@ -295,12 +295,12 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Apply(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = await _accountRepository.getUserById(curUserId!);
+            var curUser = await _accountRepository.GetUserById(curUserId!);
             var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
-                _favAndSav.addToApplied(curUser, vacancy);
+                _favAndSav.AddToApplied(curUser, vacancy);
             }
 
             return RedirectToAction("Applied", "Vacancy", new { id = curUserId });
@@ -311,12 +311,12 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> Unapply(int Id)
         {
             var curUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var curUser = await _accountRepository.getUserById(curUserId!);
+            var curUser = await _accountRepository.GetUserById(curUserId!);
             var vacancy = await _vacancyRepository.GetVacancyById(Id);
 
             if (curUser != null)
             {
-                _favAndSav.removeFromApplied(curUser, vacancy);
+                _favAndSav.RemoveFromApplied(curUser, vacancy);
             }
 
             return RedirectToAction("Applied", "Vacancy", new { id = curUserId });
@@ -334,7 +334,7 @@ namespace JobFindingWebsite.Controllers
                 return View("Error");
             }
 
-            var applicants = await _favAndSav.getAllApplicantsOfVacancy(vacancy);
+            var applicants = await _favAndSav.GetAllApplicantsOfVacancy(vacancy);
 
             var analyticsVM = new VacancyAnalyticsViewModel()
             {
@@ -344,7 +344,7 @@ namespace JobFindingWebsite.Controllers
 
             foreach (var user in applicants)
             {
-                (AppUser, StatusType) application = (user, (StatusType)await _favAndSav.getStatusOfApplicant(user, vacancy));
+                (AppUser, StatusType) application = (user, (StatusType)await _favAndSav.GetStatusOfApplicant(user, vacancy));
 
                 analyticsVM.Applicants.Add(application);
             }
@@ -356,9 +356,9 @@ namespace JobFindingWebsite.Controllers
         public async Task<IActionResult> ChangeStatus(string userId, int vacancyId, string statusString)
         {
             StatusType status = (StatusType)Enum.Parse(typeof(StatusType), statusString);
-            var user = await _accountRepository.getUserById(userId);
+            var user = await _accountRepository.GetUserById(userId);
             var vacancy = await _vacancyRepository.GetVacancyById(vacancyId);
-            await _favAndSav.setStatusOfApplicant(user!, vacancy, status);
+            await _favAndSav.SetStatusOfApplicant(user!, vacancy, status);
 
             return Json(new { success = true, redirectUrl = Url.Action("Analytics", "Vacancy", new { id = vacancyId }) });
         }
