@@ -38,7 +38,6 @@ C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\scopedcss\bundle\JobFindingWebsite.styles.css
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\scopedcss\projectbundle\JobFindingWebsite.bundle.scp.css
-C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\JobFindingWebsite.csproj.CopyComplete
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\JobFindingWebsite.dll
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\refint\JobFindingWebsite.dll
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\JobFindingWebsite.pdb
@@ -85,3 +84,5 @@ C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\bin\Debug\net7.
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\bin\Debug\net7.0\Castle.Core.dll
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\bin\Debug\net7.0\FakeItEasy.dll
 C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\bin\Debug\net7.0\FluentAssertions.dll
+C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\JobFindingWebsite.sourcelink.json
+C:\Users\Giorgi\source\repos\JobFindingWebsite\JobFindingWebsite\obj\Debug\net7.0\JobFindi.E91C9C10.Up2Date

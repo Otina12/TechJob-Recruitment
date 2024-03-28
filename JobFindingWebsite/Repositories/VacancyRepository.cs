@@ -17,17 +17,23 @@ namespace JobFindingWebsite.Repositories
 
         public async Task<List<Vacancy>> getAllVacancies()
         {
-            return await _context.Vacancies.Include(v => v.Company).ToListAsync();
+            return await _context.Vacancies.Include(v => v.Company).Where(v => DateTime.Compare(v.ExpireDate, DateTime.Now) > 0).ToListAsync();
         }
 
         public List<Vacancy> getVacanciesOfCompany(string Id)
         {
-            return _context.Vacancies.Where(v => v.CompanyId == Id).ToList();
+            return _context.Vacancies.Where(v => v.CompanyId == Id).Where(v => DateTime.Compare(v.ExpireDate, DateTime.Now) > 0).ToList();
         }
 
         public async Task<Vacancy?> getVacancyById(int VacancyId)
         {
-            return await _context.Vacancies.FirstOrDefaultAsync(x => x.Id == VacancyId);
+            var vacancy = await _context.Vacancies.FirstOrDefaultAsync(x => x.Id == VacancyId);
+            if(vacancy == null || DateTime.Compare(vacancy.ExpireDate, DateTime.Now) < 0)
+            {
+                return null;
+            }
+
+            return vacancy;
         }
 
         public bool IncrementViewCount(Vacancy vacancy)

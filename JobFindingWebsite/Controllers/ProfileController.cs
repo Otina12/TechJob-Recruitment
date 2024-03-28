@@ -11,13 +11,11 @@ namespace JobFindingWebsite.Controllers
     public class ProfileController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IVacancyRepository _vacancyRepository;
         private readonly IAccountRepository _accountRepository;
 
-        public ProfileController(IWebHostEnvironment webHostEnvironment, IVacancyRepository vacancyRepository, IAccountRepository accountRepository)
+        public ProfileController(IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepository)
         {
             _webHostEnvironment = webHostEnvironment;
-            _vacancyRepository = vacancyRepository;
             _accountRepository = accountRepository;
         }
 
